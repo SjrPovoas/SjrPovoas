@@ -28,7 +28,7 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
 <details>
 <summary>✅ Pão de Queijo da Irá</summary>
 <ul>
-<li>Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
+<li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
 <li>deploy realizado: https://pao-de-queijo-da-ira.vercel.app</li>
 </ul>
 </details>
