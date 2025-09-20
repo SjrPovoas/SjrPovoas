@@ -29,23 +29,17 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
 <summary>✅ Pão de Queijo da Irá</summary>
 <ul>
 <li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
-<li>deploy realizado: https://pao-de-queijo-da-ira.vercel.app</li>
+<li>deploy realizado: https://paodequeijodaira.vercel.app</li>
+<li>PageSpeed Insights: (https://pagespeed.web.dev/analysis/https-paodequeijodaira-vercel-app/d1mwtkrzus?hl=pt_BR&form_factor=desktop)</li>  
 </ul>
 </details>
-
 
 <details>
 <summary>✅ Café com Povoas</summary>
 <ul>
 <li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
-<li>deploy realizado: https://cafe-com-povoas.vercel.app</li>
-</ul>
-</details>
-
-<details>
-<summary>✅ Starbucks</summary>
-<ul>
-<li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
+<li>deploy realizado: https://cafecompovoas.vercel.app</li>
+<li>PageSpeed Insights: https://pagespeed.web.dev/analysis/https-cafecompovoas-vercel-app/tafyxmjbs0?hl=pt_BR&form_factor=desktop</li>  
 </ul>
 </details>
 
@@ -54,6 +48,7 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
 <ul>
 <li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
 <li>deploy realizado: https://almeida-gomes-paisagismo.vercel.app</li>
+<li>PageSpeed Insights: (https://pagespeed.web.dev/analysis/https-almeida-gomes-paisagismo-vercel-app/7otia8un6d?utm_source=search_console&form_factor=desktop&hl=pt_BR)</li>  
 </ul>
 </details>
 
