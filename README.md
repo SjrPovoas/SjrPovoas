@@ -94,7 +94,7 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
     </a>
 -->
 ## 🎯AGRADECIMENTOS
-Obrigado por visitar meu perfil e se por acaso gostar de algum reposiório, marque-o clicando na ✨
+Obrigado por visitar meu perfil e se por acaso gostar de algum repositório, marque-o clicando na ✨
 
 ---
 <p align="center">&COPY; 2025 SjrPovoaS</p>
