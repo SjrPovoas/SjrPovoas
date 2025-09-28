@@ -47,8 +47,8 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
 <summary>✅ Almeida Gomes Paisagismo</summary>
 <ul>
 <li>🔧 Tecnologias Usadas: HTML, CSS e JAVASCRIPT</li>
-<li>deploy realizado: https://almeida-gomes-paisagismo.vercel.app</li>
-<li>PageSpeed Insights: (https://pagespeed.web.dev/analysis/https-almeida-gomes-paisagismo-vercel-app/7otia8un6d?utm_source=search_console&form_factor=desktop&hl=pt_BR)</li>  
+<li>deploy realizado: https://almeidagomespaisagismo.vercel.app</li>
+<li>PageSpeed Insights: (https://pagespeed.web.dev/analysis/https-almeidagomespaisagismo-vercel-app/7otia8un6d?utm_source=search_console&form_factor=desktop&hl=pt_BR)</li>  
 </ul>
 </details>
 
