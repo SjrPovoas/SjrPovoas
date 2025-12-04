@@ -29,7 +29,7 @@ export default function LoginForm() {
 
     // --- LÓGICA DE AUTENTICAÇÃO SIMPLIFICADA ---
     // Simula credenciais válidas. Na vida real, você faria uma chamada API.
-    if (data.usuario === 'admin' && data.senha === '123456') {
+    if (data.usuario === 'admin' && data.senha === '@123&456#') {
       setErro('');
       // Armazena um token/flag de login (na vida real, use um token JWT)
       localStorage.setItem('isLoggedIn', 'true'); 
