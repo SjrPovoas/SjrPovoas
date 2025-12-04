@@ -1,0 +1,80 @@
+/* src/app/globals.css */
+
+/* 1. Import da Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* 2. Classes de Utilidade Customizadas (Inspiradas no seu <style>) */
+:root { 
+  font-family: 'Inter', sans-serif; 
+}
+
+/* Cores inspiradas no branding */
+.agp-text-green { 
+  color: #0b4e3e; 
+}
+.agp-border-green { 
+  border-color: #0b4e3e; 
+}
+
+/* Estilos base para inputs do formulário (substituindo classes puras) */
+.form-input-label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #374151; /* gray-700 */
+  padding-top: 0.5rem; 
+}
+
+.form-input {
+  padding: 0.75rem; /* p-3 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  width: 100%;
+  transition: all 150ms ease-in-out; 
+}
+
+/* Estilos de foco para inputs */
+.form-input:focus {
+  /* Adapta o focus:ring-2 focus:ring-green-500 focus:border-green-500 */
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5); 
+  border-color: #10b981; 
+  outline: none; /* remove o outline padrão do navegador */
+}
+
+/* Estilos para mensagem de erro */
+#errorMessage {
+  color: #dc2626; /* red-600 */
+  background-color: #fee2e2; /* red-100 */
+  border: 1px solid #f87171; /* red-400 */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500; 
+}
+
+/* 3. Estilos Específicos para Impressão */
+@media print {
+  body * { 
+    visibility: hidden; 
+  }
+  .print-area, .print-area * { 
+    visibility: visible; 
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    font-size: 11pt; 
+  }
+  .no-print { 
+    display: none !important; 
+  }
+  /* Remove cores na impressão para economizar tinta e melhorar legibilidade */
+  .agp-text-green { 
+    color: black !important; 
+  }
+}
