@@ -5,30 +5,24 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main style={{ textAlign: 'center', padding: '50px' }}>
-      <h1>Bem-vindo ao Next.js e TypeScript!</h1>
-      <p>Este é o ponto de partida do seu projeto.</p>
+
+<div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #0070f3', borderRadius: '8px' }}>
+
+    <div>
+      <h1>🛠️ Bem-vindo(a) à área de acesso! </h1>
+      <h2>Somente usuários autorizados(as) poderão ver os conteúdos.</h2>
+    </div> <br />
 
       {/* --- Link de Acesso ao Login --- */}
       <div style={{ marginTop: '30px' }}>
-        <Link 
-          href="/login" 
-          style={{ 
-            padding: '10px 20px', 
-            backgroundColor: '#0070f3', 
-            color: 'white', 
-            textDecoration: 'none', 
-            borderRadius: '5px',
-            fontSize: '1.2em'
-          }}
-        >
-          Acessar Gerador de Contrato (Login)
+        <Link href="/login" 
+          style={{ padding: '10px 20px', backgroundColor: '#0070f3', color: 'white', 
+            textDecoration: 'none', borderRadius: '5px', fontSize: '1.2em' }}
+        > (Entrar)
         </Link>
       </div>
       {/* ---------------------------------- */}
-      
-      <p style={{ marginTop: '20px' }}>
-        Tente acessar o caminho restrito: <Link href="/dashboard">/dashboard</Link>
-      </p>
+</div>
     </main>
   );
 }

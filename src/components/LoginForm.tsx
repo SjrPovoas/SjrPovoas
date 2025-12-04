@@ -43,8 +43,21 @@ export default function LoginForm() {
   };
 
   return (
+    
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <h2>Acesso Restrito</h2>
+    <div>
+    <Link href="https://almeidagomespaisagismo.com.br" target='_blank'><img src="/assets/img/logo-escura.webp" alt="Logo Almeida Gomes Paisagismo Escura" 
+              style={{ width: '56px', height: '56px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
+              // Tipagem do evento de erro (melhor prática em TSX)
+              onError={(e) => {
+                  const target = e.currentTarget as HTMLImageElement;
+                  target.onerror = null; 
+                  target.src = 'https://placehold.co/56x56/000000/ffffff?text=AG'; // Fallback visual
+              }}
+        /></Link> 
+    </div>
+    
+    <div><h2>Acesso Restrito</h2></div>
       {erro && <p style={{ color: 'red', border: '1px solid red', padding: '10px', backgroundColor: '#fee' }}>{erro}</p>}
       
       <form onSubmit={handleSubmit}>
@@ -72,6 +85,11 @@ export default function LoginForm() {
             style={{ width: '100%', padding: '10px', boxSizing: 'border-box' }}
           />
         </div>
+
+         <div><p style={{ marginTop: '20px', textAlign: 'right' }}>
+            <Link href="mailto:=sjrpovoas@gmail.com" target='_blank'><small>Esqueceu sua senha?</small></Link></p> 
+         </div>
+
         <button 
           type="submit"
           style={{ width: '100%', padding: '10px', backgroundColor: '#0070f3', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
@@ -79,9 +97,7 @@ export default function LoginForm() {
           Entrar
         </button>
       </form>
-      <p style={{ marginTop: '20px', textAlign: 'center' }}>
-        <small>Credenciais de teste: **admin / 123456**</small>
-      </p>
+    
     </div>
   );
 }

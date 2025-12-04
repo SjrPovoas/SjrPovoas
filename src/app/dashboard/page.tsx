@@ -49,7 +49,7 @@ export default function DashboardPage() {
               }}
         /></Link>
 
-      <div>
+    <div>
       <h1>🛠️ Bem-vindo(a) à área restrita! </h1>
       <h2>Somente usuários logados podem ver este conteúdo.</h2>
     </div> <br />
