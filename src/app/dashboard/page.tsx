@@ -39,13 +39,13 @@ export default function DashboardPage() {
   return (
     <div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #0070f3', borderRadius: '8px' }}>
 
-        <Link href="https://almeidagomespaisagismo.com.br" target='_blank'><img src="/assets/img/logo-escura.webp" alt="Logo Almeida Gomes Paisagismo Escura" 
-              style={{ width: '56px', height: '56px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
+        <Link href="https://sjrpovoas.vercel.app" target='_blank'><img src="/assets/img/logomarca-SjrPovoaS.png" alt="Logo SjrPovoaS" 
+              style={{ width: '196px', height: '196px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
               // Tipagem do evento de erro (melhor prática em TSX)
               onError={(e) => {
                   const target = e.currentTarget as HTMLImageElement;
                   target.onerror = null; 
-                  target.src = 'https://placehold.co/56x56/000000/ffffff?text=AG'; // Fallback visual
+                  target.src = 'https://placehold.co/196x196/000000/ffffff?text=AG'; // Fallback visual
               }}
         /></Link>
 

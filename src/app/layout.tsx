@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Processos Internos",
-  description: "Página gerada para facilitar os processos",
+  title: "SjrPovoaS",
+  description: "Criamos a solução que você procura",
 };
 
 export default function RootLayout({

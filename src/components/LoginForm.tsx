@@ -45,17 +45,12 @@ export default function LoginForm() {
   return (
     
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-    <div>
-    <Link href="https://almeidagomespaisagismo.com.br" target='_blank'><img src="/assets/img/logo-escura.webp" alt="Logo Almeida Gomes Paisagismo Escura" 
-              style={{ width: '56px', height: '56px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
-              // Tipagem do evento de erro (melhor prática em TSX)
-              onError={(e) => {
-                  const target = e.currentTarget as HTMLImageElement;
-                  target.onerror = null; 
-                  target.src = 'https://placehold.co/56x56/000000/ffffff?text=AG'; // Fallback visual
-              }}
+
+
+    <Link href="https://sjrpovoas.verce.app" target='_blank'><img src="/assets/img/logo-SjrPovoaS.png" alt="Logo SjrPovoaS" 
+              style={{ width: '196px', height: '196px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
         /></Link> 
-    </div>
+    
     
     <div><h2>Acesso Restrito</h2></div>
       {erro && <p style={{ color: 'red', border: '1px solid red', padding: '10px', backgroundColor: '#fee' }}>{erro}</p>}

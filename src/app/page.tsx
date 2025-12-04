@@ -8,6 +8,9 @@ export default function Home() {
 
 <div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #0070f3', borderRadius: '8px' }}>
 
+<Link href="/" target='_blank'><img src="/assets/img/logomarca-SjrPovoaS.png" alt="Logo SjrPovoaS"></img>
+</Link>
+
     <div>
       <h1>🛠️ Bem-vindo(a) à área de acesso! </h1>
       <h2>Somente usuários autorizados(as) poderão ver os conteúdos.</h2>
