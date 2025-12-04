@@ -4,7 +4,7 @@
   <table>
     <tr>
       <td align="center">
-        <img src="img/banner linkedin.png" alt="banner" />
+        <img src="public/assets/img/banner linkedin.png" alt="banner" />
         <br/>
         <a href="https://www.linkedin.com/in/sjrpovoas" target="_blank"><img src="https://img.shields.io/twitter/follow/sjrpovoas?style=for-the-badge&label=linkedin&labelColor=2196f3&color=2196f3&link=https%3A%2F%2Fwww.x.com%2Fsjrpovoas" target="_blank"></a>
         <a href="https://www.x.com/sjrpovoas" target="_blank"><img src="https://img.shields.io/twitter/follow/sjrpovoas?style=for-the-badge&logo=X&logoSize=250&label=%2F%20Twitter&labelColor=000000&color=000000&cacheSeconds=3600&link=https%3A%2F%2Fx.com%2Fsjrpovoas" target="_blank"></a>
@@ -55,18 +55,9 @@ Se encontrar algum problema ou tiver alguma dúvida, por favor compartilhe comig
 
 ---
 
-## 🔗 ESTATÍSTICAS
-
-<p>
-  <img src="https://github-profile-trophy.vercel.app/?username=SjrPovoas&theme=algolia&row=1&column=5&margin-w=5" />
-</p>
-
----
-
 ## 🧰 LINGUAGENS, HABILIDADE E FERRAMENTAS
 
 <p align="center">
-<p align="left">
     <a href="https://getbootstrap.com" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"alt="bootstrap" width="40" height="40" />
     </a>
     <a href="https://www.w3schools.com/css/" target="_blank"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40" />
@@ -114,6 +105,7 @@ First, run the development server:
 
 ```bash
 npm run dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -137,14 +129,33 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
-echo "# processos-internos" >> README.md
+## Edit with VSCode
+```
 git init
+```
+```
 git add README.md
+```
+```
 git commit -m "first commit"
+```
+```
 git branch -M main
+```
+```
 git remote add origin https://github.com/SjrPovoas/sjrpovoas.git
+```
+```
 git push -u origin main
+```
+<br />
 
+```
 git remote add origin https://github.com/SjrPovoas/sjrpovoas.git
+```
+```
 git branch -M main
+```
+```
 git push -u origin main
+```
