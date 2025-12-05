@@ -1,40 +1,128 @@
-// src/components/Carousel.tsx
-
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 
 interface CarouselProps {
   title: string;
   children: React.ReactNode;
 }
 
+// Largura de visualização para 3.5 cards (240px/card + 20px gap)
+const CAROUSEL_VIEWPORT_WIDTH = '900px'; 
+const CARD_WIDTH_WITH_GAP = 260; // 240px (card) + 20px (gap)
+
+// Estilo para os botões de navegação: MAIS FINO E MAIS TRANSPARENTE
+const buttonStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: 0, 
+  height: '100%', // Mantém esticado para cobrir toda a altura
+  width: '30px', // Mais fino
+  backgroundColor: 'rgba(0, 0, 0, 0.2)', // Maior transparência (20% preto)
+  color: '#888', // COR DA SETA: Cinza mais escuro
+  border: 'none',
+  cursor: 'pointer',
+  zIndex: 10, 
+  fontSize: '2em',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'background-color 0.3s',
+};
+
+// Estilo para o título da seção
+const titleStyle: React.CSSProperties = {
+  color: 'white',
+  fontSize: '1.8em',
+  fontWeight: '700',
+  marginBottom: '15px',
+  marginTop: '40px',
+};
+
+
 export default function Carousel({ title, children }: CarouselProps) {
   
-  // Estilo do container que permite a rolagem horizontal
-  const scrollContainerStyle: React.CSSProperties = {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      
+      // Rola um card inteiro + o gap
+      container.scrollBy({
+        left: direction === 'right' ? CARD_WIDTH_WITH_GAP : -CARD_WIDTH_WITH_GAP,
+        behavior: 'smooth', 
+      });
+    }
+  };
+
+  // Estilo do container de cards (ÁREA DE ROLAGEM)
+  const cardsWrapperStyle: React.CSSProperties = {
+    position: 'relative',
+    padding: '0 0',
+    overflowX: 'scroll', // Permite rolagem com hack para ocultar barra
     display: 'flex',
-    overflowX: 'auto', // Habilita a rolagem horizontal
     gap: '20px',
-    paddingBottom: '20px', // Espaço para a barra de rolagem
-    // Opcional: Estilo para esconder a barra de rolagem (WebKit/Chrome/Safari)
-    WebkitOverflowScrolling: 'touch', 
+    scrollBehavior: 'smooth',
+    // Propriedades para ocultar a barra de rolagem em navegadores não-WebKit
+    scrollbarWidth: 'none', // Firefox
+    msOverflowStyle: 'none', // IE and Edge
   };
   
-  // Estilo para o título da seção
-  const titleStyle: React.CSSProperties = {
-    color: 'white',
-    fontSize: '1.8em',
-    fontWeight: '700',
-    marginBottom: '15px',
-    marginTop: '40px',
+  // Hack para WebKit (Chrome/Safari)
+  const cardsWrapperStyleWithHacks = cardsWrapperStyle as any;
+  cardsWrapperStyleWithHacks.WebkitOverflowScrolling = 'touch';
+
+
+  // Estilo da ÁREA GERAL que contém a rolagem e os botões
+  const buttonAreaStyle: React.CSSProperties = {
+    position: 'relative', 
+    maxWidth: CAROUSEL_VIEWPORT_WIDTH, // CHAVE: Limita a visualização a 3.5 cards
+    margin: '0 auto', // Centraliza o carrossel no container de 1200px
   };
+
 
   return (
     <section>
-      <h2 style={titleStyle}>{title}</h2>
-      <div style={scrollContainerStyle}>
-        {children}
+      <h2 style={{...titleStyle, maxWidth: CAROUSEL_VIEWPORT_WIDTH, margin: '40px auto 15px'}}>{title}</h2>
+      
+      <div style={buttonAreaStyle}>
+        
+        {/* Container de Cards com a Ref para rolagem */}
+        <div 
+          ref={scrollContainerRef} 
+          style={cardsWrapperStyleWithHacks}
+        >
+          {children}
+        </div>
+
+        {/* Botão de Recuar (Posicionado sobre os cards) */}
+        <button 
+          onClick={() => scroll('left')}
+          style={{ 
+              ...buttonStyle, 
+              left: 0, 
+              // Hover ajustado para maior discrição
+              ':hover': { backgroundColor: 'rgba(0, 0, 0, 0.4)' } 
+          } as React.CSSProperties}
+          title="Recuar"
+        >
+          &#9664; {/* Seta para a esquerda */}
+        </button>
+        
+        {/* Botão de Avançar (Posicionado sobre os cards) */}
+        <button 
+          onClick={() => scroll('right')}
+          style={{ 
+              ...buttonStyle, 
+              right: 0,
+              // Hover ajustado para maior discrição
+              ':hover': { backgroundColor: 'rgba(0, 0, 0, 0.4)' } 
+          } as React.CSSProperties}
+          title="Avançar"
+        >
+          &#9654; {/* Seta para a direita */}
+        </button>
+
       </div>
     </section>
   );
