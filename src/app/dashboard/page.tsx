@@ -39,7 +39,7 @@ export default function DashboardPage() {
   return (
     <div style={{ maxWidth: '800px', margin: '50px auto', padding: '20px', border: '1px solid #0070f3', borderRadius: '8px' }}>
 
-        <Link href="https://sjrpovoas.vercel.app" target='_blank'><img src="/assets/img/logomarca-SjrPovoaS.png" alt="Logo SjrPovoaS" 
+        <Link href="/"><img src="/assets/img/logomarca-SjrPovoaS.png" alt="Logo SjrPovoaS" 
               style={{ width: '196px', height: '196px', objectFit: 'cover', marginTop: '20px', display: 'flex', alignItems: 'center' }}
               // Tipagem do evento de erro (melhor prática em TSX)
               onError={(e) => {

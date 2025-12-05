@@ -66,8 +66,7 @@ export default function LoginForm() {
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
 
       {/* Bloco do Logo/Marca */}
-      <Link href="https://sjrpovoas.verce.app" target='_blank'>
-        <img src="/assets/img/logo-SjrPovoaS.png" alt="Logo SjrPovoaS" 
+      <Link href="/"><img src="/assets/img/logo-SjrPovoaS.png" alt="Logo SjrPovoaS" 
           style={{ width: '196px', height: '196px', objectFit: 'cover', marginTop: '20px', display: 'block', margin: '0 auto' }}
         />
       </Link> 
