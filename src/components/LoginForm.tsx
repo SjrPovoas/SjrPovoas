@@ -66,7 +66,7 @@ export default function LoginForm() {
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
 
       {/* Bloco do Logo/Marca */}
-      <Link href="/"><img src="/assets/img/logo-SjrPovoaS.png" alt="Logo SjrPovoaS" 
+      <Link href="/login"><img src="/assets/img/logo-SjrPovoaS.png" alt="Logo SjrPovoaS" 
           style={{ width: '196px', height: '196px', objectFit: 'cover', marginTop: '20px', display: 'block', margin: '0 auto' }}
         />
       </Link> 
@@ -113,7 +113,7 @@ export default function LoginForm() {
           style={{ 
             width: '100%', 
             padding: '10px', 
-            backgroundColor: isSubmitting ? '#a0c4ff' : '#0070f3', // Muda a cor quando desabilitado
+            backgroundColor: isSubmitting ? '#a0c4ff' : 'gray', // Muda a cor quando desabilitado
             color: 'white', 
             border: 'none', 
             borderRadius: '5px', 
