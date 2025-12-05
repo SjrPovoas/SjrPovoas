@@ -103,13 +103,16 @@ export default function LoginForm() {
           />
         </div>
 
-          <div><p style={{ marginTop: '20px', textAlign: 'right' }}>
-            <Link href="mailto:sjrpovoas@gmail.com" target='_blank'><small>Esqueceu sua senha?</small></Link></p> 
-          </div>
+        <div>
+          <p style={{ marginTop: '20px', textAlign: 'right' }}>
+            <Link href="mailto:sjrpovoas@gmail.com" target='_blank' style={{ color: 'white', textDecoration: 'none' }}
+            ><small>Esqueceu sua senha?</small>
+            </Link>
+          </p> 
+        </div>
 
         <button 
-          type="submit"
-          disabled={isSubmitting} // Desabilita o botão durante o envio
+          type="submit" disabled={isSubmitting} // Desabilita o botão durante o envio
           style={{ 
             width: '100%', 
             padding: '10px', 

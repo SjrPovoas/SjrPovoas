@@ -1,14 +1,21 @@
-// src/app/page.tsx
+// src/app/page.tsx (ATUALIZADO)
 
 import Link from 'next/link';
 import React from 'react';
 import InteractiveCard from '@/components/InteractiveCard'; 
+import Carousel from '@/components/Carousel'; // Importa o novo carrossel
+
+// =======================================================================
+// ESTILOS E DADOS
+// =======================================================================
 
 const cardStyle: React.CSSProperties = {
-  width: 'calc(20% - 5px)', 
-  minWidth: '250px', 
-  height: '250px', 
-  backgroundColor: '#252525',
+  // Ajuste de width e minWidth para que o carrossel funcione bem
+  flexShrink: 0, // Impede que os cards encolham no carrossel
+  width: '240px', // Largura fixa para cada card no carrossel
+  height: '350px', // Altura ajustada
+  minWidth: '240px', 
+  backgroundColor: '#444',
   borderRadius: '8px',
   overflow: 'hidden',
   cursor: 'pointer',
@@ -19,18 +26,47 @@ const cardStyle: React.CSSProperties = {
   padding: '15px',
   textAlign: 'left',
   color: 'white',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
 };
 
-const exclusiveAreas = [
-  { title: 'Gerador de Contratos', description: 'Ferramentas de geração de documentos e orçamentos.', href: '/login', image: 'url("/assets/img/card-contratos.png")' },
-  { title: 'Base de Conhecimento', description: 'Arquivos PDF e guias de referência rápida.', href: '/login', image: 'url("/assets/img/card-conhecimento.png")' },
-  { title: 'Treinamento Rápido', description: 'Vídeos e tutoriais de uso das ferramentas.', href: '/login', image: 'url("/assets/img/card-treinamento1.png")' },
-  { title: 'Treinamento Rápido', description: 'Vídeos e tutoriais de uso das ferramentas.', href: '/login', image: 'url("/assets/img/card-treinamento2.png")' },
-  { title: 'Treinamento Rápido', description: 'Vídeos e tutoriais de uso das ferramentas.', href: '/login', image: 'url("/assets/img/card-treinamento3.png")' },
-  { title: 'Suporte VIP', description: 'Contato direto com a equipe de suporte exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP1.png")' },
-  { title: 'Suporte VIP', description: 'Contato direto com a equipe de suporte exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP2.png")' },
-  { title: 'Suporte VIP', description: 'Contato direto com a equipe de suporte exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP3.png")' },
+// Dados separados por seção para o carrossel
+const trainingAreas = [
+  { title: 'Treinamento Rápido', description: 'Uso de Tecnologia para Celulares.', href: '/login', image: 'url("/assets/img/card-treinamento1.png")' },
+  { title: 'Treinamento Rápido', description: 'Uso de Tecnologia para Celulares.', href: '/login', image: 'url("/assets/img/card-treinamento2.png")' },
+  { title: 'Treinamento Rápido', description: 'Uso de Tecnologia para Celulares.', href: '/login', image: 'url("/assets/img/card-treinamento3.png")' },
+  { title: 'Treinamento Rápido', description: 'Uso de Tecnologia para Celulares.', href: '/login', image: 'url("/assets/img/card-treinamento4.png")' },
+  { title: 'Treinamento Rápido', description: 'Uso de Tecnologia para Celulares.', href: '/login', image: 'url("/assets/img/card-treinamento5.png")' }, // Adicionado extra
 ];
+
+const vipContentAreas = [
+  { title: 'Conteúdo VIP', description: 'Conteúdo exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP1.png")' },
+  { title: 'Conteúdo VIP', description: 'Conteúdo exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP2.png")' },
+  { title: 'Conteúdo VIP', description: 'Conteúdo exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP3.png")' },
+  { title: 'Conteúdo VIP', description: 'Conteúdo exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP4.png")' },
+  { title: 'Conteúdo VIP', description: 'Conteúdo exclusivo.', href: '/login', image: 'url("/assets/img/card-suporteVIP5.png")' }, // Adicionado extra
+];
+
+// URLs para mídias sociais (Ajuste para suas URLs reais)
+const socialMediaLinks = {
+  instagram: 'https://www.instagram.com/silviopovoasjunior/',
+  facebook: 'https://www.facebook.com/sjrpovoas',
+  twitter: 'https://www.twitter.com/sjrpovaoas',
+  linkedin: 'https://www.linkedin.com/in/sjrpovoas',
+  discord: 'https://discord.com/invite/8QKN7R5dt5',
+  linktree: 'https://linktr.ee/sjrpovoas',
+};
+
+// Componente simples para os ícones (Você precisará de ícones SVG reais ou de uma biblioteca)
+const SocialIcon: React.FC<{ href: string, label: string, emoji: string }> = ({ href, label, emoji }) => (
+    <Link href={href} target="_blank" style={{ color: '#aaa', fontSize: '1.5em', textDecoration: 'none' }} title={label}>
+        {emoji}
+    </Link>
+);
+
+// =======================================================================
+// COMPONENTE PRINCIPAL
+// =======================================================================
 
 export default function Home() {
   return (
@@ -38,84 +74,104 @@ export default function Home() {
       
       {/* HEADER: LOGOMARCA E BOTÃO DE LOGIN */}
       <header style={{ 
-          maxWidth: '1200px', 
-          margin: '0 auto', 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center', 
-          paddingBottom: '40px',
-          borderBottom: '1px solid #333'
+          maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', 
+          alignItems: 'center', paddingBottom: '20px', borderBottom: '1px solid #333'
       }}>
           <Link href="/">
               <img src="/assets/img/marca-SjrPovoaS.png" alt="Marca SjrPovoaS" 
                   style={{ height: '60px', objectFit: 'contain' }} />
           </Link>
           
-          <Link href="/login" 
-            style={{ padding: '8px 16px', backgroundColor: 'white', color: '#888', 
-              textDecoration: 'none', borderRadius: '4px', fontSize: '1em' }} >
-            Entrar
-          </Link>
+      {/* TÍTULO, INTRODUÇÃO E CTA */}
+      <div style={{ maxWidth: '1200px', margin: '60px auto 30px', color: 'white', textAlign: 'right', marginTop: '0px', marginRight: '10px' }}>
+
+        
+        {/* 🚀 CALL TO ACTION (CTA) */}
+        <div style={{ marginTop: '30px', padding: '20px', backgroundColor: '#333', borderRadius: '8px' }}>
+            <Link href="/login" 
+              style={{ 
+                  display: 'inline-block', 
+                  marginTop: '5px', 
+                  padding: '10px 25px', 
+                  backgroundColor: '#0E89DBBB', // Azul Chamativo
+                  color: 'white', 
+                  textDecoration: 'none', 
+                  borderRadius: '4px', 
+                  fontWeight: 'bold'
+              }} 
+            >
+                Acessar Área Exclusiva Agora!
+            </Link>
+            <p style={{ margin: 0, fontSize: '1.1em', fontWeight: '500', paddingTop: '15px' }}>
+                <small>Faça seu login e libere seu acesso total!</small>
+            </p>
+        </div>
+      </div>
+
       </header>
 
-      {/* TÍTULO E INTRODUÇÃO */}
-      <div style={{ maxWidth: '1200px', margin: '60px auto 30px', color: 'white', textAlign: 'left' }}>
-        <h1 style={{ fontSize: '2.5em', marginBottom: '10px' }}>Áreas Exclusivas para Parceiros</h1>
-        <h2 style={{ fontSize: '1.2em', fontWeight: '400', color: '#aaa' }}>
-            Acesso a ferramentas e conteúdos exclusivos para usuários autorizados.
-        </h2>
+
+
+      {/* ÁREA DOS CARROSSEIS */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+        {/* CARROSSEL 1: TREINAMENTO RÁPIDO */}
+        <Carousel title="🎓 Treinamento Rápido">
+          {trainingAreas.map((area, index) => (
+            <InteractiveCard 
+              key={index}
+              href={area.href}
+              title={area.title}
+              description={area.description}
+              image={area.image}
+              baseStyle={cardStyle} 
+            />
+          ))}
+        </Carousel>
+
+        {/* CARROSSEL 2: CONTEÚDO VIP */}
+        <Carousel title="🌟 Conteúdo VIP">
+          {vipContentAreas.map((area, index) => (
+            <InteractiveCard 
+              key={index}
+              href={area.href}
+              title={area.title}
+              description={area.description}
+              image={area.image}
+              baseStyle={cardStyle} 
+            />
+          ))}
+        </Carousel>
+
       </div>
+      {/* Fim da Área dos Carrosseis */}
 
-      {/* ÁREA DOS CARDS */}
-      <div 
-        style={{ 
-          display: 'flex', 
-          flexWrap: 'wrap', 
-          gap: '20px', 
-          justifyContent: 'flex-start',
-          maxWidth: '1200px', 
-          margin: '0 auto' 
-        }}
-      >
-        
-        {exclusiveAreas.map((area, index) => (
-          <InteractiveCard 
-            key={index}
-            href={area.href}
-            title={area.title}
-            description={area.description}
-            image={area.image}
-            baseStyle={cardStyle} 
-          />
-        ))}
-
-      </div>
-      {/* Fim da Área dos Cards */}
-
-      {/* --- INÍCIO DO NOVO RODAPÉ --- */}
+      {/* --- INÍCIO DO NOVO RODAPÉ COM MÍDIAS SOCIAIS --- */}
       <footer 
         style={{ 
-          maxWidth: '1200px', 
-          margin: '80px auto 0', 
-          paddingTop: '30px', 
-          borderTop: '1px solid #333', 
-          color: '#888', 
-          fontSize: '0.9em',
-          textAlign: 'center' 
+          maxWidth: '1200px', margin: '80px auto 0', paddingTop: '30px', borderTop: '1px solid #333', 
+          color: '#888', fontSize: '0.9em', textAlign: 'center' 
         }}
       >
-        <div 
-          style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: '30px', 
-            marginBottom: '15px' 
-          }}
-        >
+        <div style={{ marginBottom: '20px' }}>
+          <p style={{ margin: '0 0 10px 0', fontSize: '1em', color: 'white' }}>Siga-nos nas Redes Sociais:</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
+            
+            {/* Ícones de Mídia Social (usando emojis como placeholder) */}
+            <SocialIcon href={socialMediaLinks.instagram} label="Instagram" emoji="📸" />
+            <SocialIcon href={socialMediaLinks.facebook} label="Facebook" emoji="👥" />
+            <SocialIcon href={socialMediaLinks.twitter} label="Twitter / X" emoji="🐦" />
+            <SocialIcon href={socialMediaLinks.linkedin} label="Linkedin" emoji="🐦" />
+            <SocialIcon href={socialMediaLinks.discord} label="Discord" emoji="💬" />
+            <SocialIcon href={socialMediaLinks.linktree} label="Linktree" emoji="🔗" />
+
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '30px', marginBottom: '15px' }}>
           <Link href="mailto:sjrpovoas@gmail.com" target="_blank" style={{ color: '#888', textDecoration: 'none' }}>
             Contato
           </Link>
-          {/* Links fictícios. Substitua os '#' pelos caminhos reais. */}
           <Link href="#" style={{ color: '#888', textDecoration: 'none' }}>
             Termos de Uso
           </Link>
@@ -127,7 +183,7 @@ export default function Home() {
         <p style={{ margin: '10px 0 0' }}>
           &copy; {new Date().getFullYear()} SjrPovoaS. Todos os direitos reservados.
         </p>
-        <p style={{ margin: '5px 0 0', fontSize: '0.8em', color: '#666' }}>
+        <p style={{ margin: '5px 0 0', fontSize: '0.9em', color: '#777' }}>
           Plataforma de acesso exclusivo.
         </p>
 
