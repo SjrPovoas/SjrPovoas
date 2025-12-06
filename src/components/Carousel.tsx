@@ -16,13 +16,13 @@ const buttonStyle: React.CSSProperties = {
   position: 'absolute',
   top: 0, 
   height: '100%', // Mantém esticado para cobrir toda a altura
-  width: '30px', // Mais fino
-  backgroundColor: 'rgba(0, 0, 0, 0.2)', // Maior transparência (20% preto)
+  width: '35x', // Mais fino
+  backgroundColor: 'rgba(0, 0, 0, 0.3)', // Maior transparência (30% preto)
   color: '#888', // COR DA SETA: Cinza mais escuro
   border: 'none',
   cursor: 'pointer',
   zIndex: 10, 
-  fontSize: '2em',
+  fontSize: '7.5em',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -32,7 +32,7 @@ const buttonStyle: React.CSSProperties = {
 // Estilo para o título da seção
 const titleStyle: React.CSSProperties = {
   color: 'white',
-  fontSize: '1.8em',
+  fontSize: '2em',
   fontWeight: '700',
   marginBottom: '15px',
   marginTop: '40px',
@@ -61,7 +61,7 @@ export default function Carousel({ title, children }: CarouselProps) {
     padding: '0 0',
     overflowX: 'scroll', // Permite rolagem com hack para ocultar barra
     display: 'flex',
-    gap: '20px',
+    gap: '15px',
     scrollBehavior: 'smooth',
     // Propriedades para ocultar a barra de rolagem em navegadores não-WebKit
     scrollbarWidth: 'none', // Firefox
@@ -100,13 +100,13 @@ export default function Carousel({ title, children }: CarouselProps) {
           onClick={() => scroll('left')}
           style={{ 
               ...buttonStyle, 
-              left: 0, 
+              left: 0,
               // Hover ajustado para maior discrição
               ':hover': { backgroundColor: 'rgba(0, 0, 0, 0.4)' } 
           } as React.CSSProperties}
           title="Recuar"
         >
-          &#9664; {/* Seta para a esquerda */}
+          &#8249; {/* Seta para a esquerda */}
         </button>
         
         {/* Botão de Avançar (Posicionado sobre os cards) */}
@@ -120,7 +120,7 @@ export default function Carousel({ title, children }: CarouselProps) {
           } as React.CSSProperties}
           title="Avançar"
         >
-          &#9654; {/* Seta para a direita */}
+          &#8250; {/* Seta para a direita */}
         </button>
 
       </div>

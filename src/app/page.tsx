@@ -2,6 +2,9 @@ import Link from 'next/link';
 import React from 'react';
 import InteractiveCard from '@/components/InteractiveCard';
 import Carousel from '@/components/Carousel';
+import "./globals.css";
+
+// IMPORTANTE: Assumimos que o Bootstrap Icons CSS está carregado globalmente no seu projeto.
 
 // =======================================================================
 // ESTILOS E DADOS
@@ -9,9 +12,9 @@ import Carousel from '@/components/Carousel';
 
 const cardStyle: React.CSSProperties = {
   // Ajuste de width e minWidth para que o carrossel funcione bem
-  flexShrink: 0, // Impede que os cards encolham no carrossel
-  width: '240px', // Largura fixa para cada card no carrossel
-  height: '350px', // Altura ajustada
+  flexShrink: 0,
+  width: '240px',
+  height: '350px',
   minWidth: '240px',
   backgroundColor: '#444',
   borderRadius: '8px',
@@ -55,12 +58,32 @@ const socialMediaLinks = {
   linktree: 'https://linktr.ee/sjrpovoas',
 };
 
-// Componente simples para os ícones (usando emojis como placeholder)
-const SocialIcon: React.FC<{ href: string, label: string, emoji: string }> = ({ href, label, emoji }) => (
-  <Link href={href} target="_blank" style={{ color: '#aaa', fontSize: '1.5em', textDecoration: 'none' }} title={label}>
-    {emoji}
+// =======================================================================
+// NOVO COMPONENTE SOCIALICON USANDO CLASSES DO BOOTSTRAP ICONS
+// =======================================================================
+interface SocialIconProps {
+  href: string;
+  label: string;
+  iconClass: string; // Nova prop para a classe do ícone Bootstrap
+}
+
+const SocialIcon: React.FC<SocialIconProps> = ({ href, label, iconClass }) => (
+  <Link
+    href={href}
+    target="_blank"
+    style={{
+      color: '#aaa', // Cor dos ícones
+      fontSize: '1.5em',
+      textDecoration: 'none',
+      transition: 'color 0.3s' // Efeito de transição
+    }}
+    title={label}
+  // Adicionamos um estilo de hover que só funciona em CSS/bibliotecas, mas incluímos a classe
+  >
+    <i className={`bi ${iconClass}`}></i>
   </Link>
 );
+
 
 // =======================================================================
 // COMPONENTE PRINCIPAL
@@ -81,30 +104,55 @@ export default function Home() {
         </Link>
 
         {/* 🚀 CALL TO ACTION (CTA) */}
-        <div style={{ marginTop: '30px', padding: '20px', backgroundColor: '#333', borderRadius: '8px' }}>
-            <Link href="/login" 
-              style={{ display: 'inline-block', marginTop: '5px', padding: '10px 25px', 
-                  backgroundColor: '#0070f3', color: 'white', textDecoration: 'none', 
-                  borderRadius: '4px', fontWeight: 'bold' }} 
-            >
-                Acessar Área Exclusiva Agora!
-            </Link>
-          <p style={{ margin: 0, fontSize: '1.1em', fontWeight: '500', padding: '5px 0 0 0' }}>
-          <small style={{ fontWeight: '400', color: '#aaa' }}>Faça seu login e libere seu acesso total!</small>
+        <div style={{
+          marginTop: '30px',
+          padding: '20px',
+          backgroundColor: '#333',
+          borderRadius: '8px',
+          // ALTERADO: Removemos display: flex e adicionamos textAlign: right
+          textAlign: 'right',
+        }}>
+          {/* Botão Área Exclusiva */}
+          <Link href="/login"
+            style={{
+              display: 'inline-block',
+              padding: '10px 25px',
+              backgroundColor: '#0070f3',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '4px',
+              fontWeight: 'bold',
+              // REMOVIDO: marginRight: '15px' não é mais necessário
+            }}
+          >
+            Área Exclusiva!
+          </Link>
+
+          {/* Texto Libere seu login agora! */}
+          <p style={{ margin: 0, fontSize: '1.1em', fontWeight: '500', marginTop: '5px' }}>
+            <small style={{ fontWeight: '400', color: '#aaa' }}>Libere seu login agora!</small>
           </p>
         </div>
-      
       </header>
 
 
-      {/* Seção Principal */}
+      {/* TÍTULO, INTRODUÇÃO E CTA - Seção Principal */}
       <div style={{ maxWidth: '1200px', margin: '60px auto 30px', color: 'white', textAlign: 'left' }}>
         <h1 style={{ fontSize: '2.5em', marginBottom: '10px' }}>Criamos a solução que você procura</h1>
-        <div style={{ marginTop: '30px', padding: '20px', backgroundColor: '#333', borderRadius: '8px',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ fontSize: '1.2em', fontWeight: '400', color: '#aaa' }}>
-        Acesso a conteúdos explicativos, interessantes e divertidos para usuários exclusivos.
-        </h2>
+
+        {/* CTA Block Principal */}
+        <div style={{
+          marginTop: '30px',
+          padding: '20px',
+          backgroundColor: '#333',
+          borderRadius: '8px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <h2 style={{ fontSize: '1.2em', fontWeight: '400', color: '#aaa', margin: 0 }}>
+            Acesso a conteúdos explicativos, interessantes e divertidos para usuários exclusivos.
+          </h2>
         </div>
       </div>
 
@@ -154,13 +202,13 @@ export default function Home() {
           <p style={{ margin: '0 0 10px 0', fontSize: '1em', color: 'white' }}>Siga-nos nas Redes Sociais:</p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
 
-            {/* Ícones de Mídia Social (usando emojis como placeholder) */}
-            <SocialIcon href={socialMediaLinks.instagram} label="Instagram" emoji="📸" />
-            <SocialIcon href={socialMediaLinks.facebook} label="Facebook" emoji="👥" />
-            <SocialIcon href={socialMediaLinks.twitter} label="Twitter / X" emoji="🐦" />
-            <SocialIcon href={socialMediaLinks.linkedin} label="Linkedin" emoji="🔗" />
-            <SocialIcon href={socialMediaLinks.discord} label="Discord" emoji="💬" />
-            <SocialIcon href={socialMediaLinks.linktree} label="Linktree" emoji="🌐" />
+            {/* Ícones do Bootstrap Icons */}
+            <SocialIcon href={socialMediaLinks.instagram} label="Instagram" iconClass="bi-instagram" />
+            <SocialIcon href={socialMediaLinks.facebook} label="Facebook" iconClass="bi-facebook" />
+            <SocialIcon href={socialMediaLinks.twitter} label="Twitter / X" iconClass="bi-twitter-x" /> {/* Ícone atualizado para 'X' */}
+            <SocialIcon href={socialMediaLinks.linkedin} label="Linkedin" iconClass="bi-linkedin" />
+            <SocialIcon href={socialMediaLinks.discord} label="Discord" iconClass="bi-discord" />
+            <SocialIcon href={socialMediaLinks.linktree} label="Linktree" iconClass="bi-tree-fill" />
 
           </div>
         </div>

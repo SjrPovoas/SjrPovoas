@@ -106,6 +106,21 @@ First, run the development server:
 ```bash
 npm run dev
 ```
+```bash
+npm install bootstrap
+```
+```bash
+npm install bootstrap-icons
+```
+```bash
+npm install bcryptjs
+```
+```bash
+npm install js-cookie
+```
+```bash
+npm install lucide-react
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
